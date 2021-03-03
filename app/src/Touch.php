@@ -13,12 +13,15 @@ class Touch extends Command
             return;
         }
 
-        $pwd = Prompt::getInstance()->getPwd();
+        $pwd = str_replace('/', '.', Prompt::getInstance()->getPwd());
 
-        if ($pwd !== '/')
+        if ($pwd !== '.') {
             $pwd .= '.';
+            $pwd = substr($pwd, 1, strlen($pwd));
+        } else
+            $pwd = '';
 
-        file_put_contents(APP_ROOT . '/var/filesystem' . $pwd . $arg, '');
+        file_put_contents(APP_ROOT . '/var/filesystem/' . $pwd . $arg, '');
 
         $currentDirectory = new Directory(Prompt::getInstance()->getPwd());
         $currentDirectory->parse();
