@@ -9,7 +9,8 @@ class Prompt
     const COMMAND_LINE_TO_CLASS = array(
         'ls' => 'Sourcecode\Ls',
         'cd' => 'Sourcecode\Cd',
-        'mkdir' => 'Sourcecode\Mkdir'
+        'mkdir' => 'Sourcecode\Mkdir',
+        'touch' => 'Sourcecode\Touch'
     );
 
     protected $_command = null;

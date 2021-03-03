@@ -10,6 +10,9 @@ class Mkdir
     {
         $pwd = str_replace('/', '.', Prompt::getInstance()->getPwd());
 
+        if ($pwd == '.')
+            $pwd = '';
+
         $data = 'name:' . Prompt::getInstance()->getPwd() . '/' . $arg .  "\n" .
             'files:' . "\n";
 
