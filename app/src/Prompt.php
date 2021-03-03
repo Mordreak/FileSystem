@@ -11,7 +11,8 @@ class Prompt
         'cd' => 'Sourcecode\Cd',
         'mkdir' => 'Sourcecode\Mkdir',
         'touch' => 'Sourcecode\Touch',
-        'rm' => 'Sourcecode\Rm'
+        'rm' => 'Sourcecode\Rm',
+        'pwd' => 'Sourcecode\Pwd'
     );
 
     protected $_command = null;
