@@ -1,2 +1,2 @@
 name:/subdirectory
-files:subtext.txt
+files:subtest.txt

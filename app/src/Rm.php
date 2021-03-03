@@ -4,12 +4,12 @@
 namespace Sourcecode;
 
 
-class Touch extends Command
+class Rm extends Command
 {
     public function run($arg = '')
     {
         if (!$arg) {
-            echo "Impossible de créer un fichier sans nom\n";
+            echo "Impossible de supprimer un fichier sans nom\n";
             return;
         }
 
@@ -21,12 +21,20 @@ class Touch extends Command
         } else
             $pwd = '';
 
-        file_put_contents(APP_ROOT . '/var/filesystem/' . $pwd . $arg, '');
+        if (!file_exists(APP_ROOT . '/var/filesystem/' . $pwd . $arg)) {
+            echo "Le fichier n'existe pas\n";
+            return;
+        }
+
+        unlink(APP_ROOT . '/var/filesystem/' . $pwd . $arg);
 
         $currentDirectory = new Directory(Prompt::getInstance()->getPwd());
         $currentDirectory->parse();
         $files = $currentDirectory->getFiles();
-        $files[] = $arg;
+        foreach ($files as $key => $file) {
+            if ($file == $arg)
+                unset($files[$key]);
+        }
         $currentDirectory->setFiles($files);
     }
 }

@@ -10,7 +10,8 @@ class Prompt
         'ls' => 'Sourcecode\Ls',
         'cd' => 'Sourcecode\Cd',
         'mkdir' => 'Sourcecode\Mkdir',
-        'touch' => 'Sourcecode\Touch'
+        'touch' => 'Sourcecode\Touch',
+        'rm' => 'Sourcecode\Rm'
     );
 
     protected $_command = null;
